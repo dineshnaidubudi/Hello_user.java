@@ -1,30 +1,49 @@
-#include<iostream>
-using namespace std;
-class Student
-{
-public:
-Student()
-{
-string collegeName = "MVGR";
-int collegeCode=33;
-cout<<"College Name : "<<collegeName<<endl;
-cout<<"College Code: "<<collegeCode<<endl;
+import java.util.Scanner;
+
+class Student {
+    String fullName;
+    int rollNum;
+    double semPercentage;
+    String collegeName;
+    int collegeCode;
+
+    void displaydetails() {
+        System.out.println("Name: " + fullName);
+        System.out.println("Roll Number: " + rollNum);
+        System.out.println("Sem Percentage: " + semPercentage);
+        System.out.println("College Name: " + collegeName);
+        System.out.println("College Code: " + collegeCode);
+    }
+
+    Student() {
+        System.out.println("The Student ID has been Created !");
+    }
 }
-Student(string fullName, double semPerentage)
-{
-cout<<"Full Name : "<<fullName<<endl;
-cout<<"Sem Percentage : "<<semPerentage<<endl;
+
+public class Constdest {
+    public static void main(String[] args) {
+        Student Dinesh = new Student();
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the Name: ");
+        Dinesh.fullName = input.nextLine();
+
+        System.out.print("Enter the Roll Number: ");
+        Dinesh.rollNum = input.nextInt();
+        input.nextLine(); 
+
+        System.out.print("Enter the Sem percentage: ");
+        Dinesh.semPercentage = input.nextDouble();
+        input.nextLine();
+
+        System.out.print("Enter the College Name: ");
+        Dinesh.collegeName = input.nextLine();
+
+        System.out.print("Enter the College Code: ");
+        Dinesh.collegeCode = input.nextInt();
+
+        input.close();
+
+        Dinesh.displaydetails();
+    }
 }
-~Student()
-{
-}
-};
-int main()
-{
-        Student Dinesh;
-        string Name; float Val;
-        cout<<"Enter your Name : "; getline(cin,Name);
-        cout<<"Enter your Sem Percentage : ";
-        cin>>Val;
-        Student Dineshnaidu(Name,Val);
-} 
