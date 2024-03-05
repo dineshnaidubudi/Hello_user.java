@@ -1,57 +1,102 @@
-#include <iostream>
+#include<iostream>
+
 using namespace std;
-class Base {
-public:
-    void displayBase() {
-        cout << "Base class" << endl;
-    }
+//simple inheritance
+class superclass{
+    public:
+    int x=1;
 };
-class Derived : public Base {
-public:
-    void displayDerived() {
-        cout << "Derived class" << endl;
-    }
+class subclass : public superclass{
+    public:
+    int y=2;
 };
-class DerivedMultiple : public Base {
-public:
-    void displayDerivedMultiple() {
-        cout << "Derived Multiple class" << endl;
-    }
+//mutilevel inheritance 
+class parent{
+    public:
+    int a=21;
 };
-class DerivedMultiLevel : public Derived {
-public:
-    void displayDerivedMultiLevel() {
-        cout << "Derived MultiLevel class" << endl;
-    }
+class child : public parent{
+    public:
+    int b=11;
 };
-class DerivedHierarchical1 : public Base {
-public:
-    void displayDerivedHierarchical1() {
-        cout << "Derived Hierarchical 1 class" << endl;
-    }
+class grandchild : public child{
+    public:
+    int c=2004;
 };
-class DerivedHierarchical2 : public Base {
-public:
-    void displayDerivedHierarchical2() {
-        cout << "Derived Hierarchical 2 class" << endl;
-    }
+//multiple inhertance
+class father{
+    public:
+    string a1 = "father";
 };
-int main() {
-    Derived derivedObj;
-    derivedObj.displayBase();
-    derivedObj.displayDerived();
-    DerivedMultiple derivedMultiObj;
-    derivedMultiObj.displayBase();
-    derivedMultiObj.displayDerivedMultiple();
-    DerivedMultiLevel derivedMultiLevelObj;
-    derivedMultiLevelObj.displayBase();
-    derivedMultiLevelObj.displayDerived();
-    derivedMultiLevelObj.displayDerivedMultiLevel();
-    DerivedHierarchical1 derivedHierarchical1Obj;
-    derivedHierarchical1Obj.displayBase();
-    derivedHierarchical1Obj.displayDerivedHierarchical1();
-    DerivedHierarchical2 derivedHierarchical2Obj;
-    derivedHierarchical2Obj.displayBase();
-    derivedHierarchical2Obj.displayDerivedHierarchical2();
-    return 0;
+class mother{
+    public:
+    string b2 = "mother";
+};
+class child1 : public father,public mother{
+    public:
+    string c1 = "grand child";
+};
+// hierarichical inheritance
+class dad{
+    public:
+    string a= "daddy"; 
+};
+class son1: public dad{
+    public:
+    string b= "son1";
+};
+class son2: public dad{
+    public:
+    string c= "son2";
+};
+class son3: public dad{
+    public:
+    string d= "son3";
+};
+//hybrid inheritance
+class A
+{
+ 	public:
+ 	int x;
+};
+class B : public A
+{
+ 	public:
+ 	B()      //constructor to initialize x in base class A
+ 	{
+ 	   x = 10;
+ 	}
+};
+class C
+ {
+ 	public:
+ 	int y;
+ 	C()   //constructor to initialize y
+ 	{
+ 	    y = 4;
+        }
+};
+class D : public B, public C   //D is derived from class B and class C
+{
+ 	public:
+ 	void sum()
+ 	{
+ 	    cout << "Sum= " << x + y;
+ 	}
+};
+
+int main(){
+    subclass obj;
+    grandchild obj1;
+    child1 obj2;
+    son1 obj3;
+    son2 obj4;
+    son3 obj5;
+    D obj6; 
+    cout<<"simple inheritance"<<endl<<obj.x+obj.y<<endl;
+    cout<<"Multilevel inheritance"<<endl<<obj1.a<<"/"<<obj1.b<<"/"<<obj1.c<<endl;
+    cout<<"multiple inheritance"<<endl<<obj2.a1<<endl<<obj2.b2<<endl<<obj2.c1<<endl;
+    cout<<"hierarichical inheritance"<<endl<<obj3.a<<endl;
+    cout<<obj3.b<<endl<<obj4.c<<endl<<obj5.d<<endl;     
+    obj6.sum();
 }
