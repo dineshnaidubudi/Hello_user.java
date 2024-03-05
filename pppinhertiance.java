@@ -1,36 +1,26 @@
-class Outer {
-    private class Inner {
-        public void displayPrivateInheritance() {
-            System.out.println("Private Inheritance");
-        }
-    }
+class Public {
+    public
+    int publicVar = 1;
 
-    public void callPrivateInheritance() {
-        Inner inner = new Inner();
-        inner.displayPrivateInheritance();
-    }
-}
-class Superclass {
-    public void displayPublicInheritance() {
-        System.out.println("Public Inheritance");
-    }
+    private
+    int privateVar = 2;
 
-    protected void displayProtectedInheritance() {
-        System.out.println("Protected Inheritance");
+    protected
+    int protectedVar = 3;
+
+    public
+    int getPrivate() {
+        return privateVar;
     }
 }
-class Subclass extends Superclass {
-    public void callProtectedInheritance() {
-        displayProtectedInheritance();
-    }
-}
-public class Main {
+
+public class InheritanceAccess {
     public static void main(String[] args) {
-        Outer outer = new Outer();
-        outer.callPrivateInheritance(); 
-        Subclass subclass = new Subclass();
-        subclass.displayPublicInheritance(); 
-
-        subclass.callProtectedInheritance(); 
+        Public pub = new Public();
+        System.out.print("Public : " + pub.publicVar + "\n");
+        //System.out.print("Public : "+pub.privateVar);
+        //We cannot access the privateVar because it is private i.e, accessible only within the class.
+        System.out.print("Private : " + pub.getPrivate() + "\n");
+        System.out.print("Protected : " + pub.protectedVar + "\n");
     }
 }
