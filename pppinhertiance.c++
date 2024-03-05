@@ -1,40 +1,19 @@
-#include <iostream>
-using namespace std;
-class Base {
-public:
-    void display() {
-        cout << "Base class" << endl;
-    }
-};
-class PrivateDerived : private Base {
-public:
-    void displayPrivate() {
-        display();
-        cout << "Private Derived class" << endl;
-    }
-};
-class ProtectedDerived : protected Base {
-public:
-    void displayProtected() {
-        display();
-        cout << "Protected Derived class" << endl;
-    }
-};
-class PublicDerived : public Base {
-public:
-    void displayPublic() {
-        display();
-        cout << "Public Derived class" << endl;
-    }
+#include <iostream> 
+using namespace std; 
+
+class superclass { 
+    public:
+        int a = 1;
+        int b = 2;
 };
 
-int main() {
-    PrivateDerived privateObj;
-    ProtectedDerived protectedObj;
-    PublicDerived publicObj;
-    privateObj.displayPrivate();
-    protectedObj.displayProtected();
-    publicObj.display();
-    publicObj.displayPublic();
-    return 0;
+class subclass: public superclass{
+    public:
+        int c = 3;
+};
+
+int main(){
+    subclass obj;
+    cout << "The sum of " << obj.a << " + " << obj.b << " + " << obj.c << " is: " << endl;
+    cout << (obj.a + obj.b + obj.c) << endl;
 }
