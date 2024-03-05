@@ -1,30 +1,59 @@
-interface A {
-    default void show() {
-        System.out.println("A");
-    }
+class ClassA
+{
+    public
+        void aClass()
+        {
+            System.out.print("Iam a ClassA"+"\n");
+        }
 }
 
-interface B extends A {
-    default void show() {
-        System.out.println("B");
-    }
+class ClassB extends ClassA
+{
+    public
+        void bClass()
+        {
+            System.out.print("Iam a ClassB"+"\n");
+        }
 }
 
-interface C extends A {
-    default void show() {
-        System.out.println("C");
-    }
+class ClassC extends ClassA
+{
+    public
+        void cClass()
+        {
+            System.out.print("Iam a ClassC"+"\n");
+        }
 }
 
-class D implements B, C {
-    public void show() {
-        B.super.show(); // Explicitly call B's show() method
-    }
+class ClassD extends ClassB
+{
+    public
+        void dClass()
+        {
+            System.out.print("Iam a ClassD"+"\n");
+        }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        D d = new D();
-        d.show();
+class InheritanceTypes
+{
+    public static void main(String[] args)
+    {
+        //Simple Inheritance
+        System.out.print("Simple Inheritance"+"\n");
+        ClassB class1=new ClassB();
+        class1.aClass();
+        class1.bClass();
+        //Hierarchical Inheritance
+        System.out.print("Hierarchical Inheritance"+"\n");
+        ClassC class2=new ClassC();
+        class1.aClass();
+        class1.bClass();
+        class2.aClass();
+        class2.cClass();
+        //Multi-Level Inheritance
+        System.out.print("Multi-Level Inheritance"+"\n");
+        ClassD class3=new ClassD();
+        class3.aClass();
+        class3.bClass();
+        class3.dClass();
     }
 }
