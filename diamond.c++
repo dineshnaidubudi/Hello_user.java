@@ -1,29 +1,50 @@
-#include <iostream>
+ #include<iostream>
 using namespace std;
-class Person {
-public:
-    void greet() {
-        cout << "Person greets" << endl;
-    }
-};
-class Teacher : public Person {
-public:
-    void greet() {
-        cout << "Teacher greets students" << endl;
-    }
-};
-class Student : public Person {
-public:
-    void greet() {
-        cout << "Student greets teachers" << endl;
-    }
-};
-class TeachingAssistant : public Teacher, public Student {
+
+class ClassA
+{
+    public:
+        void aClass()
+        {
+            cout<<"Iam a parent classA\n";
+        }
 };
 
-int main() {
-    TeachingAssistant ta;
-    ta.Teacher::greet();
-    ta.Student::greet();
+class ClassB: public ClassA
+{
+    public:
+        void bClass()
+        {
+            cout<<"Iam a child of ClassA\n";
+        }
+};
+
+class ClassC: public ClassA
+{
+    public:
+        void cClass()
+        {
+            cout<<"Iam also child of ClassA\n";
+        }
+};
+
+class ClassD: public ClassC,public ClassB
+{
+    public:
+        void dClass()
+        {
+            cout<<"Iam a ClassD\n";
+        }
+};
+
+int main()
+{
+    ClassD obj1;
+    //obj1.aClass();
+    //aClass() method becomes ambiguous here
+    obj1.bClass();
+    obj1.cClass();
+    obj1.dClass();
     return 0;
 }
+
