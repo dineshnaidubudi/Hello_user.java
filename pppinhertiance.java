@@ -1,26 +1,28 @@
-class Public {
-    public
-    int publicVar = 1;
+public class Simpleinheritance {
+    private int pri = 10;
+    public int pub = 11;
+    protected int pro = 12;
 
-    private
-    int privateVar = 2;
-
-    protected
-    int protectedVar = 3;
-
-    public
-    int getPrivate() {
-        return privateVar;
+    public int getpri() {
+        return pri;
     }
 }
 
-public class InheritanceAccess {
+class Subclass extends Simpleinheritance {
+    int var1 = getpri();
+}
+
+/* Error: Illegal modifier for the class sinherit; only public, abstract & final are permitted */
+// private class sinheri {}
+
+/* Error: Illegal modifier for the class simpleinherit; only public, abstract & final are permitted */
+// protected class simpleinherit {}
+
+class Test {
     public static void main(String[] args) {
-        Public pub = new Public();
-        System.out.print("Public : " + pub.publicVar + "\n");
-        //System.out.print("Public : "+pub.privateVar);
-        //We cannot access the privateVar because it is private i.e, accessible only within the class.
-        System.out.print("Private : " + pub.getPrivate() + "\n");
-        System.out.print("Protected : " + pub.protectedVar + "\n");
+        Subclass x = new Subclass();
+        System.out.println(x.pub);
+        System.out.println(x.pro);
+        System.out.println(x.var1);
     }
 }
